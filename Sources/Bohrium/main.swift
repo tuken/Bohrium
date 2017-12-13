@@ -6,10 +6,13 @@ import LoggerAPI
 
 HeliumLogger.use(.info)
 
-WebSocket.register(service: EchoService(), onPath: "chat")
+WebSocket.register(service: EchoService(), onPath: "echo")
 
 class EchoServerDelegate: ServerDelegate {
-    public func handle(request: ServerRequest, response: ServerResponse) {}
+    
+    public func handle(request: ServerRequest, response: ServerResponse) {
+        Log.info("EchoServerDelegate handle")
+    }
 }
 
 let server = HTTP.createServer()
